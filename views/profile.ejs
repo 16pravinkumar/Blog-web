@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Profile - <%= user.name %></title>
+  </head>
+  <body class="bg-zinc-900">
+    <div class="contain text-white w-full h-full  p-10 ">
+      
+      <div class="flex justify-end ">
+
+        <a href="/logout" class=" mt-4 block px-4 py-2 text-center text-white bg-red-500 border border-red-500 rounded hover:bg-transparent hover:text-red-500 transition uppercase font-roboto font-medium cursor-pointer text-sm">logout</a>
+      </div>
+
+
+      <div class="flex items-center gap-3 mb-16">
+        <div class="w-11 h-11 rounded-md">
+          <img class="w-full h-full object-cover rounded-md" src="Images/Upload/<%= user.profilePic %>" alt="profile">
+          <a href="/profile/upload" class="mt-1 block  text-center text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-500 transition uppercase font-roboto font-medium cursor-pointer text-[10px]">edit</a>
+        </div>
+        <div>
+
+          <h3 class="text-3xl ">Hey, <span class="font-bold capitalize"><%= user.name %></span>  welcome back 👋 </h3>
+          <span class="text-sm ">you can create a new post.</span>
+        </div>
+      </div>
+
+       <form action="/posts" method="post">
+        <div class="mt-3  w-1/2">
+          <div >
+            <input
+              type="text"
+              name="postContent"
+              id="name"
+              class="block  w-full border  px-4 py-3 rounded outline-none bg-transparent border-2 border-zinc-800 "
+              placeholder="What's on your mind"
+            />
+          </div>
+        </div>
+  
+        <input
+        type="submit"
+        class=" mt-4 block px-4 py-2 text-center text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-500 transition uppercase font-roboto font-medium cursor-pointer text-sm"
+        value="Create new post"
+      >
+      </input>
+
+       </form>
+
+       <div class="posts mt-20 pb-10">
+        <h3 class="text-3xl ">Your Posts.  </h3>
+        <div class="postContainer mt-5 flex flex-wrap gap-4">
+
+          <% if(user.posts.length > 0) { %>
+            <% user.posts.forEach((post) => {  %>
+              <div class="post w-[32%] p-5 border-2 border-zinc-700 rounded bg-zinc-800">
+                <h4 class=" font-bold text-blue-500">@<%= user.userName %></h4>
+                <p class="text-sm"><%= post.content %></p>
+                <small><%= post.likes.length %> likes</small>
+                <div class="btns flex gap-3 mt-3">
+                  <a href="/like/<%= post._id %>" class="text-white">
+                   <%= post.likes.indexOf(user._id) === -1 ? "Like" : "Unlike" %>
+                  </a>
+                  <a href="/edit/<%= post._id %>" class="text-yellow-500">Edit</a>
+                </div>
+              </div>
+  
+          <%  }) %>
+         <% } else { %>
+            <p class="text-sm text-gray-400">"No posts yet. Create a new one."</p>
+            <%    } %>
+          
+
+         
+                  
+         
+        </div>
+       </div>
+
+
+      
+    </div>
+
+
+    <script src="Js/app.js"></script>
+  </body>
+</html>

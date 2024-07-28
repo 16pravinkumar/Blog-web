@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Register - Page</title>
+  </head>
+  <body class="bg-zinc-900">
+    <div
+      class="contain text-white w-full h-[100vh] flex justify-center items-center"
+    >
+      <div
+        class="shadow-lg shadow-cyan-500/50 px-7 py-7 rounded-lg overflow-hidden w-[40%]"
+      >
+        <h2 class="text-2xl uppercase font-medium mb-1">Set your profile</h2>
+        <p class="text-gray-400 mb-6 text-sm">Welcome! So good to have you!</p>
+        <form
+          id="registrationForm"
+          autocomplete="off"
+          action="/upload"
+          method="post"
+          enctype="multipart/form-data"
+
+        >
+          <div class="w-full flex gap-3 items-center mt-2">
+            <div class="space-y-2 w-full">
+              <div class="cursor-pointer">
+                <label for="avatar" class="text-gray-600 block"
+                  >Upload Any File</label
+                >
+                <input
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  class="block w-full border px-4 py-3 rounded outline-none bg-transparent border-2 border-zinc-800 cursor-pointer"
+                  required
+                />
+              </div>
+
+              <div class="mt-4">
+                <input
+                  type="submit"
+                  class="mt-10 block w-full py-2 text-center text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-500 transition uppercase font-roboto font-medium cursor-pointer"
+                  value="Upload File"
+                />
+               
+              </div>
+            </div>
+          
+          
+        </form>
+      </div>
+    </div>
+    <script src="Js/app.js"></script>
+  </body>
+</html>

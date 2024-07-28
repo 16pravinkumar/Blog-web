@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+  </head>
+  <body class="bg-zinc-900">
+    <div class="contain text-white w-full h-full  p-10 ">
+      
+      <div class="flex justify-between items-center mb-5 ">
+     
+        <a href="/profile" class=" mt-4 block px-4 py-2 text-center text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-500 transition uppercase font-roboto font-medium cursor-pointer text-sm">Get Back</a>
+
+        <a href="/logout" class=" mt-4 block px-4 py-2 text-center text-white bg-red-500 border border-red-500 rounded hover:bg-transparent hover:text-red-500 transition uppercase font-roboto font-medium cursor-pointer text-sm">logout</a>
+      </div>
+
+
+      
+       <h2 class="text-xl "> Edit your post.</h2>
+
+       <form action="/update/<%= post._id %>" method="post">
+        <div class="mt-3  w-1/2">
+          <div >
+           
+            <textarea 
+              type="text"
+              name="postContent"
+              id="name"
+              class="block  w-full border  px-4 py-3 rounded outline-none bg-transparent border-2 border-zinc-800 h-full"
+              >
+              <%= post.content %>
+            </textarea>
+            
+          </div>
+        </div>
+  
+        <input
+        type="submit"
+        class=" mt-4 block px-4 py-2 text-center text-white bg-yellow-500 border border-yellow-500 rounded hover:bg-transparent hover:text-yellow-500 transition uppercase font-roboto font-medium cursor-pointer text-sm"
+        value="update post"
+      >
+      </input>
+
+       </form>
+
+      
+
+
+      
+    </div>
+
+
+    <script src="Js/app.js"></script>
+  </body>
+</html>
